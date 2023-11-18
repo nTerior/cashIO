@@ -5,6 +5,9 @@ import 'package:hive_flutter/adapters.dart';
 class DB {
   DB._();
 
+  static late Box<CashIOModel> cashIO;
+  static late Box<CashIOCategory> cashIOCategories;
+
   static Future<void> init() async {
     await Hive.initFlutter();
     // init adapters
@@ -13,5 +16,7 @@ class DB {
     Hive.registerAdapter(CashIOCategoryAdapter());
 
     // open boxes
+    cashIO = await Hive.openBox<CashIOModel>("cashIO");
+    cashIOCategories = await Hive.openBox<CashIOCategory>("cashIOCategories");
   }
 }
