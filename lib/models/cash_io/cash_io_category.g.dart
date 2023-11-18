@@ -18,18 +18,21 @@ class CashIOCategoryAdapter extends TypeAdapter<CashIOCategory> {
     };
     return CashIOCategory(
       name: fields[0] as String,
-      color: fields[1] as Color,
+      color: fields[1] as Color?,
+      icon: fields[2] as IconData,
     );
   }
 
   @override
   void write(BinaryWriter writer, CashIOCategory obj) {
     writer
-      ..writeByte(2)
+      ..writeByte(3)
       ..writeByte(0)
       ..write(obj.name)
       ..writeByte(1)
-      ..write(obj.color);
+      ..write(obj.color)
+      ..writeByte(2)
+      ..write(obj.icon);
   }
 
   @override

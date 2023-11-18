@@ -9,7 +9,14 @@ class CashIOCategory extends HiveObject {
   String name;
 
   @HiveField(1)
-  Color color;
+  Color? color;
 
-  CashIOCategory({required this.name, required this.color});
+  @HiveField(2)
+  IconData icon;
+
+  CashIOCategory({
+    required this.name,
+    this.color,
+    required this.icon,
+  });
 }
