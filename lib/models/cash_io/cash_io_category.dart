@@ -1,6 +1,7 @@
-import 'dart:ui';
-
+import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
+
+part 'cash_io_category.g.dart';
 
 @HiveType(typeId: 1)
 class CashIOCategory extends HiveObject {
