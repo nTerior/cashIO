@@ -17,21 +17,24 @@ class CashIOModelAdapter extends TypeAdapter<CashIOModel> {
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
     return CashIOModel(
-      date: fields[0] as DateTime,
-      amount: fields[1] as double,
-      categories: (fields[2] as HiveList).castHiveList(),
+      name: fields[0] as String,
+      date: fields[1] as DateTime,
+      amount: fields[2] as double,
+      categories: (fields[3] as HiveList).castHiveList(),
     );
   }
 
   @override
   void write(BinaryWriter writer, CashIOModel obj) {
     writer
-      ..writeByte(3)
+      ..writeByte(4)
       ..writeByte(0)
-      ..write(obj.date)
+      ..write(obj.name)
       ..writeByte(1)
-      ..write(obj.amount)
+      ..write(obj.date)
       ..writeByte(2)
+      ..write(obj.amount)
+      ..writeByte(3)
       ..write(obj.categories);
   }
 

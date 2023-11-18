@@ -6,13 +6,21 @@ part 'cash_io.g.dart';
 @HiveType(typeId: 0)
 class CashIOModel extends HiveObject {
   @HiveField(0)
-  DateTime date;
+  String name;
 
   @HiveField(1)
-  double amount;
+  DateTime date;
 
   @HiveField(2)
+  double amount;
+
+  @HiveField(3)
   HiveList<CashIOCategory> categories;
 
-  CashIOModel({required this.date, required this.amount, required this.categories});
+  CashIOModel({
+    required this.name,
+    required this.date,
+    required this.amount,
+    required this.categories,
+  });
 }
