@@ -1,6 +1,8 @@
+import 'package:cash_io/db.dart';
 import 'package:flutter/material.dart';
 
-void main() {
+Future<void> main() async {
+  await DB.init();
   runApp(const MainApp());
 }
 
